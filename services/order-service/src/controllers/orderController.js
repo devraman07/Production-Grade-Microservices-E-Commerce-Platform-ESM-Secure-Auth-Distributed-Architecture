@@ -1,7 +1,7 @@
 import Order from '../models/Order.js';
 import axios from 'axios';
-import { successResponse, errorResponse, createPaginationMeta } from '../../shared/utils/responseHelper.js';
-import { orderSchemas } from '../../shared/utils/validationSchemas.js';
+import { successResponse, errorResponse, createPaginationMeta } from '../../../shared/utils/responseHelper.js';
+import { orderSchemas } from '../../../shared/utils/validationSchemas.js';
 
 /**
  * In-memory store for idempotency keys (use Redis in production)

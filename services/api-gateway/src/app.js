@@ -4,12 +4,13 @@ dotenv.config();
 import express from 'express';
 import cookieParser from 'cookie-parser';
 
+
 // Shared middleware
-import { globalErrorHandler } from '../shared/middleware/errorHandler.js';
-import { corsConfig, securityHeaders, rateLimiters } from '../shared/config/middleware.js';
-import { requestLogger } from '../shared/utils/logger.js';
-import { sanitizeMongo, createUserRateLimiter } from '../shared/middleware/security.js';
-import { routeTimeout } from '../shared/middleware/performance.js';
+import { globalErrorHandler } from '../../shared/middleware/errorHandler.js';
+import { corsConfig, securityHeaders, rateLimiters } from '../../shared/config/middleware.js';
+import { requestLogger } from '../../shared/utils/logger.js';
+import { sanitizeMongo, createUserRateLimiter } from '../../shared/middleware/security.js';
+import { routeTimeout } from '../../shared/middleware/performance.js';
 
 import authRoutes from './routes/auth.js';
 import productsRoutes from './routes/products.js';
@@ -26,7 +27,9 @@ const PORT = process.env.PORT || 3000;
 // Security middleware
 app.use(securityHeaders);
 app.use(sanitizeMongo);
+
 app.use(corsConfig);
+
 
 // Rate limiting at gateway level
 app.use('/api/auth', rateLimiters.auth);

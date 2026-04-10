@@ -2,7 +2,7 @@ import Transaction from '../models/Transaction.js';
 import axios from 'axios';
 import crypto from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
-import { successResponse, errorResponse } from '../../shared/utils/responseHelper.js';
+import { successResponse, errorResponse } from '../../../shared/utils/responseHelper.js';
 
 // Create payment intent
 export const createPaymentIntent = async (req, res, next) => {

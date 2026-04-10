@@ -1,0 +1,36 @@
+{
+  "name": "podplate-platform",
+  "version": "1.0.0",
+  "description": "PodPlate E-Commerce Platform - Microservices Monorepo",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:services",
+    "install:services": "for dir in services/*/; do (cd \"$dir\" && npm install); done",
+    "clean": "npm run clean:modules && npm run clean:locks",
+    "clean:modules": "find services -name 'node_modules' -type d -exec rm -rf {} + 2>/dev/null || true && rm -rf node_modules 2>/dev/null || true",
+    "clean:locks": "find services -name 'package-lock.json' -type f -delete 2>/dev/null || true && rm -f package-lock.json 2>/dev/null || true",
+    "reinstall": "npm run clean && npm install",
+    "dev:gateway": "cd services/api-gateway && npm run dev",
+    "dev:auth": "cd services/auth-service && npm run dev",
+    "dev:user": "cd services/user-service && npm run dev",
+    "dev:product": "cd services/product-service && npm run dev",
+    "dev:cart": "cd services/cart-service && npm run dev",
+    "dev:order": "cd services/order-service && npm run dev",
+    "dev:payment": "cd services/payment-service && npm run dev",
+    "dev:restaurant": "cd services/restaurant-service && npm run dev",
+    "dev:notification": "cd services/notification-service && npm run dev",
+    "lint": "eslint services/*/src/**/*.js",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
+}

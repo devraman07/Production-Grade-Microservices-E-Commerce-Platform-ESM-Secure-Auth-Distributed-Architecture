@@ -1,7 +1,7 @@
 import Cart from '../models/Cart.js';
 import { getSessionCart } from '../utils/cartUtils.js';
 import axios from 'axios';
-import { successResponse, errorResponse } from '../../shared/utils/responseHelper.js';
+import { successResponse, errorResponse } from '../../../shared/utils/responseHelper.js';
 import redis from 'redis';
 
 // Add to cart

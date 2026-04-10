@@ -1,6 +1,6 @@
 import User from '../models/User.js';
 import generateToken from '../utils/generateToken.js';
-import { successResponse, errorResponse } from '../../shared/utils/responseHelper.js';
+import { successResponse, errorResponse } from '../../../shared/utils/responseHelper.js';
 import jwt from 'jsonwebtoken';
 
 /**

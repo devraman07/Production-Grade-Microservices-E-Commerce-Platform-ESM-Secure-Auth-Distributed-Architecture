@@ -5,7 +5,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 
-// Shared middleware
+
 import { globalErrorHandler, notFoundHandler } from '../../shared/middleware/errorHandler.js';
 import { corsConfig, securityHeaders, rateLimiters } from '../../shared/config/middleware.js';
 import { requestLogger } from '../../shared/utils/logger.js';
